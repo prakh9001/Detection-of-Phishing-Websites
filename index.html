@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Phishing Detection</title>
+<link rel="stylesheet" href="C:\Users\AGASTYA SHANKER\Python Files\Applied Data Science project\static\style.css">
+<!-- <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}"> -->
+<style>
+  nav {
+  background-color: #11428E;
+  padding: 20px;
+  border-radius: 30px;
+  box-shadow: 0 0 10px #000000;
+}
+
+nav a {
+  color: #ffffff;
+  text-decoration: none;
+  font-size: 25px;
+  margin-right: 10px;
+}
+
+nav a:hover {
+  color: #ffffff;
+  background-color: #008CBA;
+}
+body {
+    font-family: sans-serif;
+    font-size: 16px;
+    background-color: #f5f5f5;
+  }
+  label {
+    font-size: 20px;
+    margin-bottom: 10px;
+  }
+  
+  input {
+    width: 300px;
+    height: 30px;
+    border: 1px solid #ccc;
+    padding: 10px;
+  }
+  
+  button {
+    background-color: #008CBA;
+    color: white;
+    border: none;
+    padding: 10px;
+    cursor: pointer;
+  }
+  
+  footer {
+  text-align: center;
+  margin-top: 30px;
+  width: 100%;
+  font-size: 12px;
+  color: #999999;
+}
+  .main {
+  background-color: #ffffff;
+  padding: 20px;
+  border-radius: 10px;
+  margin-top: 40px;
+  text-align: center;
+  border: 2px solid #11428E;
+  min-height: 500px;
+}
+
+#output {
+  background-color: #ffffff;
+  padding: 20px;
+  border-radius: 10px;
+  margin-top: 20px;
+  border: 2px solid #11428E;
+  font-size : 40px ; 
+  font-weight : bold ; 
+} 
+
+h1 {
+  text-align: center;
+  margin-top: 0px;
+  font-size: 40px;
+  font-weight: bold;
+  color: #11428E;
+  text-shadow: 0 0 5px #ffffff;
+}
+
+
+.main > * {
+  margin-top: 20px;
+}
+
+</style>
+</head>
+<body>
+<nav>
+<a href="/">Home</a>
+<a href="/about">About</a>
+<a href="/contact">Contact</a>
+</nav>
+
+<div class="main">
+<h1>Phishing Website Detection</h1>
+<h2> Detect whether your website is a legitimate or someone is trying to phish you !</h2>
+<form method = "POST" action = "/">
+    <label for="url">Enter your URL:</label>
+    <input type="text" id="url" name = "url" placeholder="https://www.example.com">
+    <button type="submit">Check your URL !</button>
+    <div id = "output" name = "output">
+        <h2>Prediction Result:</h2>
+        {% if output_string == "Legitimate website"%}
+        <p style = "color:green">{{ output_string }}</p>
+        {% elif output_string == "Phishing website"%}
+        <p style = "color:red">{{output_string}}</p>
+        {% elif output_string == "website url is incorrect"%}
+        <p style = "color:blue">{{output_string}}</p>
+        {%else%}
+        <p>{{output_string}}</p>
+        {% endif %}
+    </div>
+</form>
+</div>
+<footer>
+&copy; 2023 Phishing Detection
+</footer>
+</body>
+</html>
